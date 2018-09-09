@@ -34,7 +34,10 @@ $(function () {
 
   QUnit.test('should exit early if element is not visible', function (assert) {
     assert.expect(1)
-    var $affix = $('<div style="display: none"/>').bootstrapAffix()
+    var $affix = $('<div style="display: none"/>')
+      .appendTo('#qunit-fixture')
+      .bootstrapAffix()
+
     $affix.data('bs.affix').checkPosition()
     assert.ok(!$affix.hasClass('affix'), 'affix class was not added')
   })
@@ -66,11 +69,12 @@ $(function () {
       })
 
     setTimeout(function () {
-      window.scrollTo(0, document.body.scrollHeight)
+      window.scrollTo(0, document.body.scrollHeight - 5)
 
+      // for testing in a browser
       setTimeout(function () {
         window.scroll(0, 0)
-      }, 16) // for testing in a browser
+      }, 150)
     }, 0)
   })
 
@@ -97,11 +101,11 @@ $(function () {
       })
 
     setTimeout(function () {
-      window.scrollTo(0, document.body.scrollHeight)
+      window.scrollTo(0, document.body.scrollHeight - 5)
 
       setTimeout(function () {
         window.scroll(0, 119)
       }, 250)
-    }, 250)
+    }, 0)
   })
 })
