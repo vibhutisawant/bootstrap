@@ -320,7 +320,7 @@ module.exports = function (grunt) {
           'Element "img" is missing required attribute "src".'
         ]
       },
-      src: '_gh_pages/**/*.html'
+      src: ['_gh_pages/**/*.html', 'js/tests/**/*.html']
     },
 
     watch: {
