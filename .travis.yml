@@ -18,10 +18,10 @@ script:
   - if [ "$TRAVIS_NODE_VERSION" = "8" ]; then npm run check-broken-links; fi
 after_success:
   - if [ "$TRAVIS_NODE_VERSION" = "8" ]; then npm run coveralls; fi
-stages:
-  - test
-  - name: browser
-    if: type = push
+#stages:
+#  - test
+#  - name: browser
+#    if: type = push
 jobs:
   include:
     - stage: browser
